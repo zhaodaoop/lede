@@ -7,8 +7,7 @@
 # <https://github.com/KFERMercer/OpenWrt-CI>
 # 
 
-name: OpenWrt-CI 0.1
-
+name: k3 0.1
 on:
   schedule:
     - cron: 0 20 * * *
@@ -99,9 +98,8 @@ jobs:
 
           # 编译x64固件:
           cat >> .config <<EOF
-          CONFIG_TARGET_x86=y
-          CONFIG_TARGET_x86_64=y
-          CONFIG_TARGET_x86_64_Generic=y
+          CONFIG_TARGET_bcm53xx=y
+          CONFIG_TARGET_bcm53xx_DEVICE_phicomm-k3=y
           EOF
 
           # 固件压缩:
